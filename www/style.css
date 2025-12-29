@@ -1,0 +1,148 @@
+body {background-color: #f5f5f5;}
+
+/* Aumenta e deixa em negrito todos os headers da sidebar */
+.sidebar-menu li.header_ {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: #fff !important;
+  margin-top: 15px;
+  margin-bottom: 5px;
+/*  margin-left: 15px; */ 
+  background-color: #2C3A40 !important;
+    padding: 8px 12px 8px 24px !important;
+}
+
+.skin-green .main-header .navbar {background-color: #486018 !important;}
+.skin-green .main-header .logo {background-color: #486018 !important;}
+.skin-green .main-header .logo:hover {background-color: #3d4d13;}
+.btn-success {background-color: #C6FACD; border-color: black; color: black; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%;}
+.btn-success:hover {background-color: #639F4B; border-color: black; color: #fff; box-shadow: 0 6px 8px rgba(0,0,0,0.2);}
+.box {border: 1px solid #486018; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.1);}
+.box-header {background-color: #354612 !important; color: #fff; border-bottom: 1px solid #486018;}
+.box .box-title {color: #fff;}
+.progress-bar {background-color: #486018;}
+.author-info {color: #486018; font-size: 12px; text-align: right; margin-top: 10px; padding-right: 20px;}
+.download-button-container {text-align: center; margin: 20px 0;}
+.download-icon {color: #486018; font-size: 16px; cursor: pointer; margin-right: 10px;}
+.download-icon:hover {color: #3d4d13;}
+.no-pointer {cursor: default;}
+
+/* download button and icon */
+.btn-download {background-color: #639F4B; border-color: #639F4B;color: white;}
+.btn-download i {color: white;}
+
+.skin-green .main-sidebar {background-color: #d3d3d3;}
+.skin-green .main-sidebar .sidebar {color: #333;}
+.skin-green .main-sidebar .sidebar a {color: #333;}
+.skin-green .main-sidebar .sidebar a:hover {background-color: #b0b0b0;}
+
+
+.box.box-solid.box-primary {
+    border: 1px solid #486018;
+}
+
+.main-header .logo {
+    background-color: #354612 !important;
+}
+
+/* Keep header and sidebar fixed in place */
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z‐index: 1000;
+}
+.main-sidebar {
+  position: fixed;
+  top: 50px;   /* height of your header */
+  bottom: 0;
+  overflow: hidden;
+}
+
+/* Push the content-wrapper over so it doesn’t hide under the sidebar/header */
+.content-wrapper {
+  position: fixed;
+  top: 50px;    /* same as header height */
+  left: 0px;  /* width of your sidebar */
+  right: 0;
+  bottom: 0;
+  padding: 20px; /* your usual content padding */
+  overflow: auto; /* only if you want internal scrolling of the content area itself */
+}
+
+.skin-blue .main-header .navbar {
+    background-color: #486018;
+}
+
+.fa-solid, .fas {
+    color: #354612;
+}
+
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #354612;
+}
+
+.dt-center {
+  text-align: center;
+}
+
+/* Remove espaço no topo da sidebar (acima do primeiro header/menu) */
+.main-sidebar .sidebar {
+  padding-top: 0 !important;
+}
+
+/* Sobe o menu (o ul.sidebar-menu) */
+.main-sidebar .sidebar-menu {
+  margin-top: -10px !important;   /* ajuste fino: -6, -8, -10... */
+}
+
+/* Se ainda sobrar folga no primeiro item */
+.main-sidebar .sidebar-menu > li.header_ {
+  padding-top: 4px !important;
+}
+
+/* Garante que não há bloco de search ocupando espaço */
+.main-sidebar .sidebar-form {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* Menos espaço vertical entre inputs */
+.main-sidebar .form-group {
+  margin-bottom: 6px !important;   /* teste 4–8 */
+}
+
+/* Labels mais próximos do input */
+.main-sidebar .control-label {
+  margin-bottom: 2px !important;
+  font-size: 12px;
+}
+
+/* Selectize mais compacto (altura e padding) */
+.main-sidebar .selectize-control.single .selectize-input,
+.main-sidebar .selectize-control.multi .selectize-input {
+  min-height: 28px !important;
+  padding: 4px 8px !important;
+}
+
+/* Texto do selectize */
+.main-sidebar .selectize-input,
+.main-sidebar .selectize-dropdown,
+.main-sidebar .selectize-input input {
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+
+/* Chips (multi) mais compactos */
+.main-sidebar .selectize-control.multi .selectize-input > div {
+  padding: 1px 6px !important;
+  margin: 1px 3px 1px 0 !important;
+}
+
+/* Checkbox mais compacto */
+.main-sidebar .checkbox {
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
