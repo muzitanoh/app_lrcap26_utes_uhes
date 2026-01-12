@@ -1,0 +1,12 @@
+name: app_lrcap26_utes_uhes
+title: app_lrcap26_utes_uhes
+username: hugo.muzitano
+account: hugo.muzitano
+server: prd-rstd-01
+hostUrl: http://prd-rstd-01/__api__
+appId: 265
+bundleId: 1832
+url: http://prd-rstd-01/lrcap26_ute_uhe/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

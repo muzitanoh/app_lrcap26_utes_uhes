@@ -5,7 +5,6 @@ source("R/util.R")
 source("R/data_prep.R")
 
 source("R/modulos/mod_visao_geral.R")
-source("R/modulos/mod_analise_ano.R")
 source("R/modulos/mod_tabela_completa.R")
 
 options(shiny.maxRequestSize = 1024^3)
@@ -134,7 +133,6 @@ ui <- shinydashboard::dashboardPage(
     includeCSS("www/style.css"),
     shinydashboard::tabItems(
       mod_visao_geral_ui("vg"),
-      mod_analise_ano_ui("aa"),
       mod_tabela_completa_ui("tb")
     )
   )
@@ -170,7 +168,6 @@ server <- function(input, output, session) {
   })
   
   mod_visao_geral_server("vg", dados = dados_filtrados)
-  # mod_analise_ano_server("aa", dados = dados_filtrados)
   mod_tabela_completa_server("tb", dados = dados_filtrados)
 }
 

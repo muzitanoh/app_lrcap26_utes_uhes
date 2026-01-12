@@ -46,20 +46,20 @@ mod_visao_geral_ui <- function(id) {
 
     fluidRow(
       box(
-        title = "Potência instalada considerada por ano (Valor acumulativo)",
-        status = "primary",
-        solidHeader = TRUE,
-        width = 6,
-        height = "500px",
-        plotlyOutput(ns("plot_potencia_ano"), height = "420px")
-      ),
-      box(
         title = "Margem solicitada por ano (Valor acumulativo)",
         status = "primary",
         solidHeader = TRUE,
         width = 6,
         height = "500px",
         plotlyOutput(ns("plot_margem_ano"), height = "420px")
+      ),
+      box(
+        title = "Potência instalada considerada por ano (Valor acumulativo)",
+        status = "primary",
+        solidHeader = TRUE,
+        width = 6,
+        height = "500px",
+        plotlyOutput(ns("plot_potencia_ano"), height = "420px")
       )
     )
   )
@@ -83,7 +83,7 @@ mod_visao_geral_server <- function(id, dados) {
     output$box_projetos <- renderValueBox({
       df <- dados()
       valueBox(
-        value = fmt_br(n_distinct(df$id_projeto)),
+        value = fmt_br(n_distinct(df$id_projeto), 0),
         subtitle = "Nº de Projetos (distintos)",
         icon = icon("folder-open"),
         color = "green"
@@ -184,20 +184,31 @@ mod_visao_geral_server <- function(id, dados) {
     output$tabela_resumo_uf <- renderDT({
       df <- dados()
       base_uf <- agg_por_uf(df) %>%
-        arrange(desc(margem_total_mw), desc(n_projetos))
+        arrange(desc(margem_total_mw), desc(n_projetos)) %>% 
+        mutate(
+          perc_margem = margem_total_mw/sum(margem_total_mw)
+        ) %>% 
+        select(
+          -pot_inst_total_mw
+        )
       
       datatable(
         base_uf,
         rownames = FALSE,
-        colnames = c("UF", "Nº de Projetos", "Margem Solicitada (MW)", "Potência instalada final (MW)"),
+        colnames = c("UF", "Nº de Projetos", "Margem Solicitada (MW)", "Percentual da Margem"),
         options = list(pageLength = 12, dom = "tip", scrollX = TRUE),
         class = "cell-border stripe"
       ) %>%
         formatRound(
-          columns = c("margem_total_mw", "pot_inst_total_mw"),
-          digits  = 2,
-          mark    = ".",   # milhar
-          dec.mark = ","   # decimal
+          columns  = "margem_total_mw",
+          digits   = 2,
+          mark     = ".",
+          dec.mark = ","
+        ) %>%
+        formatPercentage(
+          columns  = "perc_margem",
+          digits   = 2,
+          dec.mark = ","
         )
     })
 
